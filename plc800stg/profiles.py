@@ -24,7 +24,7 @@ class PlcProfilesParser(object):
     @property
     def profiles(self):
         df = self.df_profiles.drop(columns=['flag'])
-        df['cnc_name'] = 'Bascul'
+        df['cnc_name'] = self.cnc_name
         df['magn'] = 1000
         df['timestamp'] = df['timestamp'].apply(
             lambda x: datetime.strptime(x, '%d/%m/%Y %H:%M:%S').strftime('%Y-%m-%d %H:%M:%S'))
