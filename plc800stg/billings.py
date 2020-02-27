@@ -38,7 +38,7 @@ class PlcMonthlyBillingsParser(object):
                 index_capacitativa = index_inductiva + num_periods
                 capacitativa = int(row[index_capacitativa])
                 index_maxim = index_capacitativa + num_periods
-                maxim = float(row[index_maxim])
+                maxim = int(float(row[index_maxim])*1000)
                 billing = {
                     'name': meter_name,
                     'contract': contract,
