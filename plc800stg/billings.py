@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 from StringIO import StringIO
 import pandas as pd
-from datetime import datetime
+from datetime import datetime, timedelta
 
 
 class PlcMonthlyBillingsParser(object):
@@ -28,7 +28,10 @@ class PlcMonthlyBillingsParser(object):
                 # read row info for each period
                 meter_name = row[0]
                 contract = int(row[1])
-                date_end = datetime.strptime(row[3], '%d/%m/%Y %H:%M:%S').strftime('%Y-%m-%d %H:%M:%S')
+                date_end_dt = datetime.strptime(row[3], '%d/%m/%Y %H:%M:%S')
+                if date_end_dt.day != 1:
+                    date_end_dt = date_end_dt + timedelta(days=1)
+                date_end = date_end_dt.strftime('%Y-%m-%d %H:%M:%S')
                 date_begin = datetime.strptime(
                     date_end, '%Y-%m-%d %H:%M:%S').replace(day=1).strftime('%Y-%m-%d %H:%M:%S')
                 index_activa = 4 + period
