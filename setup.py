@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='plc800stg',
-    version='0.0.2',
+    version='0.0.3',
     packages=find_packages(),
     url='https://github.com/gisce/plc800stg',
     license='MIT License',
