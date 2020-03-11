@@ -28,15 +28,13 @@ class PlcMonthlyBillingsParser(object):
                 # read row info for each period
                 meter_name = row[0]
                 contract = int(row[1])
-                # date_end is last day of month
+                # date_end may be last day of month
                 date_end_dt = datetime.strptime(row[3], '%d/%m/%Y %H:%M:%S')
                 date_end = date_end_dt.strftime('%Y-%m-%d %H:%M:%S')
-                # get first day of month
-                date_begin_dt = datetime.strptime(date_end, '%Y-%m-%d %H:%M:%S')
-                date_begin = date_begin_dt.replace(day=1).strftime('%Y-%m-%d %H:%M:%S')
-                # add 1 day to date_end to get first day of next month
-                date_end_dt = date_end_dt + timedelta(days=1)
-                date_end = date_end_dt.strftime('%Y-%m-%d %H:%M:%S')
+                if date_end_dt.day != 1:
+                    date_end_dt = date_end_dt + timedelta(days=1)
+                # get begin date
+                date_begin = (date_end_dt - timedelta(days=1)).replace(day=1).strftime('%Y-%m-%d %H:%M:%S')
                 # energy
                 index_activa = 4 + period
                 activa_entrante = int(row[index_activa])
