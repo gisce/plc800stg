@@ -97,4 +97,8 @@ class PlcDailyBillingsParser(object):
         df['max'] = 0
         df['date_max'] = False
         df['cnc_name'] = self.cnc_name
-        return df.T.to_dict().values()
+        df_billings_2 = df.copy()
+        df_billings_2['period'] = 1
+        result = pd.concat([df, df_billings_2])
+        result.reset_index(drop=True, inplace=True)
+        return result.T.to_dict().values()
