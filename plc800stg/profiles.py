@@ -18,14 +18,20 @@ class PlcProfilesParser(object):
         self.cnc_name = cnc_name
         self.df_profiles = pd.read_csv(profiles_file, header=None, sep=';',
                                        names=['name', 'timestamp', 'flag', 'ai', 'ae', 'r1', 'r2', 'r3', 'r4'],
-                                       dtype={'name': str, 'timestamp': str, 'ai': int, 'ae': int,
-                                              'r1': int, 'r2': int, 'r3': int, 'r4': int})
+                                       dtype={'name': str, 'timestamp': str, 'ai': float, 'ae': float,
+                                              'r1': float, 'r2': float, 'r3': float, 'r4': float})
 
     @property
     def profiles(self):
         df = self.df_profiles.drop(columns=['flag'])
         df['cnc_name'] = self.cnc_name
-        df['magn'] = 1000
+        df['magn'] = 1
+        df['ai'] = df['ai'].apply(lambda x: int(x * 1000))
+        df['ae'] = df['ae'].apply(lambda x: int(x * 1000))
+        df['r1'] = df['r1'].apply(lambda x: int(x * 1000))
+        df['r2'] = df['r2'].apply(lambda x: int(x * 1000))
+        df['r3'] = df['r3'].apply(lambda x: int(x * 1000))
+        df['r4'] = df['r4'].apply(lambda x: int(x * 1000))
         df['timestamp'] = df['timestamp'].apply(
             lambda x: datetime.strptime(x, '%d/%m/%Y %H:%M:%S').strftime('%Y-%m-%d %H:%M:%S'))
         df['season'] = df['timestamp'].apply(lambda x: get_station(x))
