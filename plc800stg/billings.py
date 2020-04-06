@@ -78,10 +78,11 @@ class PlcDailyBillingsParser(object):
             raise TypeError('Must be file pointer or basestring')
         # read file
         self.cnc_name = cnc_name
-        self.df_billings = pd.read_csv(billings_file, header=None, sep=';',
-                                       names=['name', 'date_end', 'ai', 'ae', 'r1', 'r2', 'r3', 'r4'],
-                                       dtype={'name': str, 'date_end': str, 'ai': int, 'ae': int,
-                                              'r1': int, 'r2': int, 'r3': int, 'r4': int})
+        # dropna for handling rows without data
+        df_billings = pd.read_csv(billings_file, header=None, sep=';').dropna()
+        df_billings.columns = ['name', 'date_end', 'ai', 'ae', 'r1', 'r2', 'r3', 'r4']
+        self.df_billings = df_billings.astype({'name': str, 'date_end': str, 'ai': int, 'ae': int,
+                                               'r1': int, 'r2': int, 'r3': int, 'r4': int})
 
     @property
     def billings(self):
