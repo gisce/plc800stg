@@ -1,0 +1,30 @@
+501001937;10/01/2000 08:56:28;3;Change of time, previous time
+501001937;01/02/2020 00:10:09;14;Sincronitzation event
+501001937;01/02/2020 00:10:09;4;Change of time, new time
+501001937;12/02/2020 11:46:40;2;Power fail
+501001937;27/02/2020 12:09:15;1;Start without loss of data
+501005339;05/11/2018 10:46:05;100;Unknown event
+501005339;05/11/2018 10:49:58;13;Local communications event
+501005339;05/11/2018 10:49:58;13;Local communications event
+501005339;05/11/2018 10:50:10;13;Local communications event
+501005339;05/11/2018 10:50:16;13;Local communications event
+501005339;05/11/2018 10:50:32;13;Local communications event
+501005339;05/11/2018 10:50:32;6;Parameters change
+501005339;05/11/2018 10:50:32;6;Parameters change
+501005339;05/11/2018 10:50:32;13;Local communications event
+501005339;05/11/2018 10:50:59;13;Local communications event
+501005339;05/11/2018 10:50:59;6;Parameters change
+501005339;05/11/2018 10:50:59;6;Parameters change
+501005339;05/11/2018 10:50:59;13;Local communications event
+501005339;05/11/2018 10:51:31;13;Local communications event
+501005339;05/11/2018 10:51:31;6;Parameters change
+501005339;05/11/2018 10:51:31;6;Parameters change
+501005339;05/11/2018 10:51:31;13;Local communications event
+501005339;05/11/2018 10:51:36;13;Local communications event
+501005339;05/11/2018 10:51:46;13;Local communications event
+501005339;05/11/2018 10:52:04;16;Power event
+501005339;05/11/2018 10:52:04;16;Power event
+501005339;05/11/2018 15:16:58;5;Intrusion incidence
+501005339;05/11/2018 15:06:16;2;Power fail
+501005339;05/11/2018 15:28:14;1;Start without loss of data
+501005339;05/11/2018 15:32:32;5;Intrusion incidence
